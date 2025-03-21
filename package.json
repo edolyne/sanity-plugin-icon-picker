@@ -60,6 +60,7 @@
     "@sanity/ui": "^2.15.7",
     "decamelize": "3.2.0",
     "framework7-icons": "^5.0.5",
+    "lucide-react": "^0.483.0",
     "react-icons": "^4.8.0",
     "react-virtualized-auto-sizer": "^1.0.5",
     "react-window": "^1.8.6",

@@ -16,12 +16,13 @@ const tabsRender = (ui: ReactElement) =>
 describe('TabList', () => {
   it('renders two tabs with correct titles', () => {
     const { getByRole, getAllByRole } = tabsRender(
-      <TabList providers={['f7', 'sa']} />
+      <TabList providers={['f7', 'sa', 'lu']} />,
     );
 
-    expect(getAllByRole('tab').length).toBe(2);
+    expect(getAllByRole('tab').length).toBe(3);
     expect(getByRole('tab', { name: /Framework7/i })).toBeInTheDocument();
     expect(getByRole('tab', { name: /Sanity Icons/i })).toBeInTheDocument();
+    expect(getByRole('tab', { name: /Lucide Icons/i })).toBeInTheDocument();
   });
 });
 
@@ -30,7 +31,7 @@ describe('TabPanel', () => {
     const { getByText } = tabsRender(
       <TabPanel provider="f7">
         <div>Child 1</div>
-      </TabPanel>
+      </TabPanel>,
     );
 
     expect(getByText('Framework7')).toBeInTheDocument();
@@ -39,7 +40,7 @@ describe('TabPanel', () => {
     const { getByText } = tabsRender(
       <TabPanel provider="f7">
         <div>Child 1</div>
-      </TabPanel>
+      </TabPanel>,
     );
 
     expect(getByText('Child 1')).toBeInTheDocument();
@@ -52,7 +53,7 @@ describe('Tabs', () => {
       <>
         <div>Child 1</div>
         <div>Child 2</div>
-      </>
+      </>,
     );
 
     expect(getByText('Child 1')).toBeInTheDocument();
@@ -72,7 +73,7 @@ describe('Tabs', () => {
             </TabPanel>
           ))}
         </>
-      </>
+      </>,
     );
 
     const allIconsPanel = container.querySelector('#all-icons-panel');
@@ -97,7 +98,7 @@ describe('Tabs', () => {
             </TabPanel>
           ))}
         </>
-      </>
+      </>,
     );
 
     const allIconsTab = getByRole('tab', { name: /All Icons/i });
